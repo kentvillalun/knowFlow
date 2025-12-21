@@ -1,7 +1,11 @@
+import Dashboard from "../pages/Dashboard";
+
 const Main = () => {
     return (
         <>
-            <p>This is the main content</p>
+            <div className="p-8 bg-gray-50">
+                <Dashboard />
+            </div>
         </>
     );
 }

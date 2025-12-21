@@ -8,7 +8,7 @@ function App() {
     <>
       <div className="">
         <TopBar />
-        <div className="grid grid-cols-[16rem_1fr] gap-4">
+        <div className="grid lg:grid-cols-[16rem_1fr]">
           <SideBar />
           <Main />
         </div>
