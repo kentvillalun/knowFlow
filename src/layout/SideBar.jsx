@@ -6,7 +6,7 @@ import SettingIcon from "../components/icons/SettingIcon";
 const SideBar = () => {
   return (
     <>
-      <div className="w-64 min-h-[calc(100dvh-75px)] border-r-gray-200 border-r sticky top-18.75 self-start md:block hidden bg-white z-10">
+      <div className="w-64 min-h-[calc(100dvh-75px)] border-r-gray-200 border-r sticky top-18.75 self-start lg:block hidden bg-white z-9">
         {/* Dashboard Link */}
         <div className="p-4 mt-7 flex flex-col gap-2">
           <div className=" pb-2 mr-5">
