@@ -3,29 +3,31 @@ import EntryContent from "../components/EntryContent";
 import FocusListItems from "../components/FocusListItems";
 import RecenEntriesList from "../components/RecentEntriesList";
 import TagChip from "../components/TagChip";
+import AlertIcon from "../components/icons/AlertIcon";
 import { useState } from "react";
 
 const Dashboard = () => {
   const [focusText, setFocusText] = useState("");
-  const [focusList, setFocusList] = useState([])
-
-  
+  const [focusList, setFocusList] = useState([]);
 
   const addFocus = () => {
-    console.log(focusText);
-
+    if (focusText.trim() === "") {
+      return alert(
+        "Input field can't be empty. Please input your focus before adding!"
+      );
+    }
     const focus = {
       id: focusList.length === 0 ? 1 : focusList[focusList.length - 1].id + 1,
       focusName: focusText,
-    }
+    };
 
-    setFocusList([...focusList, focus])
-    setFocusText("")
-    console.log(focusList)
-    
+    setFocusList([...focusList, focus]);
+    setFocusText("");
   };
 
-  
+  const deleteFocus = (id) => {
+    setFocusList(focusList.filter((f) => f.id !== id));
+  };
 
   return (
     <>
@@ -40,7 +42,7 @@ const Dashboard = () => {
             onChange={(event) => setFocusText(event.target.value)}
             onSave={addFocus}
           />
-          <FocusListItems focusList={focusList}/>
+          <FocusListItems focusList={focusList} deleteFocus={deleteFocus} />
         </div>
         <div className="flex flex-col gap-5">
           <TagChip />

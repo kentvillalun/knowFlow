@@ -1,4 +1,4 @@
-const FocusListItems = ({ focusList }) => {
+const FocusListItems = ({ focusList, deleteFocus }) => {
   return (
     <>
       <div className="flex flex-col gap-3 lg:col-span-1 md:col-span-1 col-span-2 md:order-3 ">
@@ -7,10 +7,11 @@ const FocusListItems = ({ focusList }) => {
           {focusList.map((f) => {
             return (
               <div
-                className="w-full bg-white p-4 shadow-lg rounded-xl transform hover:-translate-y-1 hover:shadow-xl transition-all hover:border-b-violet-700 hover:border-b-3 hover:cursor-pointer pb-8"
+                className="w-full bg-white p-4 shadow-lg rounded-xl transform hover:-translate-y-1 hover:shadow-xl transition-all hover:border-b-violet-700 hover:border-b-3 hover:cursor-pointer pb-8 flex flex-row justify-between items-center "
                 key={f.id}
               >
                 <h3 className="text-xl font-semibold">{f.focusName}</h3>
+                <button className="py-1 px-5 bg-violet-800 text-white rounded-3xl cursor-pointer hover:bg-violet-900 active:bg-violet-950 transition-colors" onClick={() => deleteFocus(f.id)}>Done</button>
               </div>
             );
           })}
